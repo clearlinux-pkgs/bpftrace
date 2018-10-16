@@ -1,0 +1,26 @@
+From 53f5aa23b84f1bffe28b5cf9af45ecea9039defc Mon Sep 17 00:00:00 2001
+From: Caio Marcelo de Oliveira Filho <caio.oliveira@intel.com>
+Date: Wed, 10 Oct 2018 13:14:20 -0700
+Subject: [PATCH 2/2] Fix missing include ftw.h
+
+This is already fixed upstream in the code for 'bcc', but is not yet
+on a release.  We are sticking to the latest release here.
+---
+ src/clang_parser.cpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/clang_parser.cpp b/src/clang_parser.cpp
+index 42d522e..ba25c4d 100644
+--- a/src/clang_parser.cpp
++++ b/src/clang_parser.cpp
+@@ -2,6 +2,7 @@
+ #include <iostream>
+ #include <string.h>
+ #include <sys/utsname.h>
++#include <ftw.h>
+ 
+ #include "frontends/clang/kbuild_helper.h"
+ 
+-- 
+2.19.1
+
