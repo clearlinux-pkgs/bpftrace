@@ -1,0 +1,18 @@
+While this package is functional, it still needs some work:
+
+- Upstream currently seems to depend on internals of libbpf (part of
+  BCC), so we can't just depend on the bcc-dev package (which we have
+  in Clear).  Maybe the answer is fixing upstream, maybe the answer is
+  ship more things as part of bcc package.  I haven't digged further.
+  For now I've just stick the latest release of BCC as part of extra
+  archives.
+
+- Use googletest from the system.
+
+- Patch we have for avoiding clone should be improved so can be
+  upstreamed.
+
+- We currently pull the sources from a github hash, would be nice to
+  prod the upstream sometime in the future to make a release.
+
+- Unskip tests.
