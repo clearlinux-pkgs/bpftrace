@@ -4,7 +4,7 @@
 #
 Name     : bpftrace
 Version  : 0.9.2
-Release  : 3
+Release  : 4
 URL      : https://github.com/iovisor/bpftrace/archive/v0.9.2.tar.gz
 Source0  : https://github.com/iovisor/bpftrace/archive/v0.9.2.tar.gz
 Source1  : https://github.com/google/googletest/archive/release-1.8.1.tar.gz
@@ -76,7 +76,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1565989251
+export SOURCE_DATE_EPOCH=1565993421
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -84,12 +84,13 @@ export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
 export FFLAGS="$CFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
-%cmake .. -DBUILD_TESTING=OFF
+%cmake .. -DBUILD_TESTING=OFF \
+-DBUILD_SHARED_LIBS=OFF
 make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1565989251
+export SOURCE_DATE_EPOCH=1565993421
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/bpftrace
 cp 3rdparty/gtest/LICENSE %{buildroot}/usr/share/package-licenses/bpftrace/3rdparty_gtest_LICENSE
