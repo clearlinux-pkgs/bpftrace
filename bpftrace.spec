@@ -4,13 +4,12 @@
 #
 Name     : bpftrace
 Version  : 0.9.2
-Release  : 4
+Release  : 5
 URL      : https://github.com/iovisor/bpftrace/archive/v0.9.2.tar.gz
 Source0  : https://github.com/iovisor/bpftrace/archive/v0.9.2.tar.gz
-Source1  : https://github.com/google/googletest/archive/release-1.8.1.tar.gz
 Summary  : High-level tracing language for Linux eBPF
 Group    : Development/Tools
-License  : Apache-2.0 BSD-3-Clause
+License  : Apache-2.0
 Requires: bpftrace-bin = %{version}-%{release}
 Requires: bpftrace-data = %{version}-%{release}
 Requires: bpftrace-license = %{version}-%{release}
@@ -24,11 +23,10 @@ BuildRequires : glibc-dev
 BuildRequires : llvm-dev
 BuildRequires : llvm-extras
 BuildRequires : pkgconfig(libelf)
-BuildRequires : python3
 
 %description
-The Google Mock class generator is an application that is part of cppclean.
-For more information about cppclean, visit http://code.google.com/p/cppclean/
+# bpftrace
+bpftrace is a high-level tracing language for Linux enhanced Berkeley Packet Filter (eBPF) available in recent Linux kernels (4.x). bpftrace uses LLVM as a backend to compile scripts to BPF-bytecode and makes use of [BCC](https://github.com/iovisor/bcc) for interacting with the Linux BPF system, as well as existing Linux tracing capabilities: kernel dynamic tracing (kprobes), user-level dynamic tracing (uprobes), and tracepoints. The bpftrace language is inspired by awk and C, and predecessor tracers such as DTrace and SystemTap. bpftrace was created by [Alastair Robertson](https://github.com/ajor).
 
 %package bin
 Summary: bin components for the bpftrace package.
@@ -66,17 +64,13 @@ man components for the bpftrace package.
 
 %prep
 %setup -q -n bpftrace-0.9.2
-cd ..
-%setup -q -T -D -n bpftrace-0.9.2 -b 1
-mkdir -p 3rdparty/gtest
-cp -r %{_topdir}/BUILD/googletest-release-1.8.1/* %{_topdir}/BUILD/bpftrace-0.9.2/3rdparty/gtest
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1565993421
+export SOURCE_DATE_EPOCH=1565993690
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -90,13 +84,9 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1565993421
+export SOURCE_DATE_EPOCH=1565993690
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/bpftrace
-cp 3rdparty/gtest/LICENSE %{buildroot}/usr/share/package-licenses/bpftrace/3rdparty_gtest_LICENSE
-cp 3rdparty/gtest/googlemock/LICENSE %{buildroot}/usr/share/package-licenses/bpftrace/3rdparty_gtest_googlemock_LICENSE
-cp 3rdparty/gtest/googlemock/scripts/generator/LICENSE %{buildroot}/usr/share/package-licenses/bpftrace/3rdparty_gtest_googlemock_scripts_generator_LICENSE
-cp 3rdparty/gtest/googletest/LICENSE %{buildroot}/usr/share/package-licenses/bpftrace/3rdparty_gtest_googletest_LICENSE
 cp LICENSE %{buildroot}/usr/share/package-licenses/bpftrace/LICENSE
 pushd clr-build
 %make_install
@@ -174,10 +164,6 @@ mv %{buildroot}/usr/man %{buildroot}/usr/share
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/bpftrace/3rdparty_gtest_LICENSE
-/usr/share/package-licenses/bpftrace/3rdparty_gtest_googlemock_LICENSE
-/usr/share/package-licenses/bpftrace/3rdparty_gtest_googlemock_scripts_generator_LICENSE
-/usr/share/package-licenses/bpftrace/3rdparty_gtest_googletest_LICENSE
 /usr/share/package-licenses/bpftrace/LICENSE
 
 %files man
