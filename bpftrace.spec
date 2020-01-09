@@ -4,7 +4,7 @@
 #
 Name     : bpftrace
 Version  : 0.9.3
-Release  : 9
+Release  : 10
 URL      : https://github.com/iovisor/bpftrace/archive/v0.9.3/bpftrace-0.9.3.tar.gz
 Source0  : https://github.com/iovisor/bpftrace/archive/v0.9.3/bpftrace-0.9.3.tar.gz
 Summary  : High-level tracing language for Linux eBPF
