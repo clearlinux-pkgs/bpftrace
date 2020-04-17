@@ -1,2 +1,0 @@
-mkdir -p %{buildroot}/usr/share
-mv %{buildroot}/usr/man %{buildroot}/usr/share
