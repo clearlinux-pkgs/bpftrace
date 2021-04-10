@@ -3,4 +3,5 @@ libbcc.so.0
 libc.so.6
 libclang.so.10
 libgcc_s.so.1
+libm.so.6
 libstdc++.so.6
