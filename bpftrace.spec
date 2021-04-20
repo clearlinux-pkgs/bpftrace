@@ -4,7 +4,7 @@
 #
 Name     : bpftrace
 Version  : 0.12.1
-Release  : 17
+Release  : 18
 URL      : https://github.com/iovisor/bpftrace/archive/v0.12.1/bpftrace-0.12.1.tar.gz
 Source0  : https://github.com/iovisor/bpftrace/archive/v0.12.1/bpftrace-0.12.1.tar.gz
 Summary  : High-level tracing language for Linux eBPF
@@ -73,7 +73,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1618606343
+export SOURCE_DATE_EPOCH=1618877415
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -83,11 +83,11 @@ export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 %cmake .. -DBUILD_TESTING=OFF \
 -DBUILD_SHARED_LIBS=OFF
-make  %{?_smp_mflags}
+make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1618606343
+export SOURCE_DATE_EPOCH=1618877415
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/bpftrace
 cp %{_builddir}/bpftrace-0.12.1/LICENSE %{buildroot}/usr/share/package-licenses/bpftrace/2b8b815229aa8a61e483fb4ba0588b8b6c491890
