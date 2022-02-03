@@ -1,6 +1,7 @@
 # This file contains additional build requirements that did not get
 # picked up automatically. One name per line, no whitespace.
-llvm-dev
-llvm-extras
-flex-dev
 bcc-dev
+cereal-dev
+flex-dev
+llvm-dev
+llvm-staticdev
