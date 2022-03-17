@@ -1,5 +1,5 @@
 libLLVM.so.13
-libbcc.so.0
+libbcc_bpf.so.0
 libc.so.6
 libclang.so.13
 libdw.so.1
