@@ -5,3 +5,4 @@ cereal-dev
 flex-dev
 llvm-dev
 llvm-staticdev
+libbpf-dev

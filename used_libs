@@ -1,7 +1,8 @@
-libLLVM.so.13
+libLLVM.so.14
 libbcc_bpf.so.0
+libbpf.so.0
 libc.so.6
-libclang.so.13
+libclang.so.14
 libdw.so.1
 libgcc_s.so.1
 libstdc++.so.6
