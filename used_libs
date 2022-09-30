@@ -1,6 +1,6 @@
 libLLVM.so.14
 libbcc_bpf.so.0
-libbpf.so.0
+libbpf.so.1
 libc.so.6
 libclang.so.14
 libdw.so.1
