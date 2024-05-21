@@ -6,10 +6,10 @@
 # autospec commit: 5905be9
 #
 Name     : bpftrace
-Version  : 0.20.3
-Release  : 25
-URL      : https://github.com/iovisor/bpftrace/archive/v0.20.3/bpftrace-0.20.3.tar.gz
-Source0  : https://github.com/iovisor/bpftrace/archive/v0.20.3/bpftrace-0.20.3.tar.gz
+Version  : 0.20.4
+Release  : 26
+URL      : https://github.com/iovisor/bpftrace/archive/v0.20.4/bpftrace-0.20.4.tar.gz
+Source0  : https://github.com/iovisor/bpftrace/archive/v0.20.4/bpftrace-0.20.4.tar.gz
 Summary  : High-level tracing language for Linux eBPF
 Group    : Development/Tools
 License  : Apache-2.0
@@ -77,8 +77,8 @@ man components for the bpftrace package.
 
 
 %prep
-%setup -q -n bpftrace-0.20.3
-cd %{_builddir}/bpftrace-0.20.3
+%setup -q -n bpftrace-0.20.4
+cd %{_builddir}/bpftrace-0.20.4
 %patch -P 1 -p1
 
 %build
@@ -86,7 +86,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1715003980
+export SOURCE_DATE_EPOCH=1716294167
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -120,7 +120,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1715003980
+export SOURCE_DATE_EPOCH=1716294167
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/bpftrace
 cp %{_builddir}/bpftrace-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/bpftrace/2b8b815229aa8a61e483fb4ba0588b8b6c491890 || :
