@@ -1,0 +1,25 @@
+From 80e5fdbe52d4a1c1f593dbeb1db5dedcb5f6c1ee Mon Sep 17 00:00:00 2001
+From: William Douglas <william.douglas@intel.com>
+Date: Fri, 27 Sep 2024 00:15:22 -0700
+Subject: [PATCH] Try Allowing llvm 19 since it is out
+
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index fb478f1..4b36cc5 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -149,7 +149,7 @@ else()
+ endif()
+ 
+ set(MIN_LLVM_MAJOR 6)
+-set(MAX_LLVM_MAJOR 18)
++set(MAX_LLVM_MAJOR 19)
+ 
+ if((${LLVM_VERSION_MAJOR} VERSION_LESS ${MIN_LLVM_MAJOR}) OR (${LLVM_VERSION_MAJOR} VERSION_GREATER ${MAX_LLVM_MAJOR}))
+   message(SEND_ERROR "Unsupported LLVM version found via ${LLVM_INCLUDE_DIRS}: ${LLVM_VERSION_MAJOR}")
+-- 
+2.46.2
+
